@@ -1,0 +1,9 @@
+<h1>Meme Details</h1>
+<p><strong>Description:</strong> {{ meme[0] }}</p>
+<img src="https://{{ AWS_S3_BUCKET }}.s3.{{ AWS_REGION }}.amazonaws.com/{{ meme[1] }}" alt="Meme Image">
+<h2>Tags</h2>
+<ul>
+    {% for tag in tags %}
+    <li>{{ tag[0] }} (Confidence: {{ tag[1] }}%)</li>
+    {% endfor %}
+</ul>

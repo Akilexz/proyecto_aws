@@ -1,0 +1,12 @@
+<h1>Search Meme</h1>
+<form method="post">
+    <input type="text" name="keyword" placeholder="Search by description or tags">
+    <button type="submit">Search</button>
+</form>
+<ul>
+    {% for result in results %}
+    <li>
+        <a href="/meme/{{ result[0] }}">{{ result[1] }}</a>
+    </li>
+    {% endfor %}
+</ul>
