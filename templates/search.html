@@ -1,12 +1,46 @@
-<h1>Buscar Meme</h1>
-<form method="post">
-    <input type="text" name="keyword" placeholder="Search by description or tags">
-    <button type="submit">Buscar</button>
-</form>
-<ul>
-    {% for result in results %}
-    <li>
-        <a href="/meme/{{ result[0] }}">{{ result[1] }}</a>
-    </li>
-    {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Meme</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Buscar Meme</h1>
+
+        <!-- Mostrar mensajes flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <p class="flash-message {{ category }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <form method="post" class="search-form">
+            <input type="text" name="keyword" placeholder="Buscar por descripción o etiquetas" class="search-input">
+            <button type="submit" class="search-button">Buscar</button>
+        </form>
+
+        <div class="search-results">
+            {% if results %}
+                <ul>
+                    {% for result in results %}
+                    <li class="search-item">
+                        <a href="/meme/{{ result[0] }}" class="result-link">{{ result[1] }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-results-message">No se encontraron coincidencias.</p>
+            {% endif %}
+        </div>
+
+        <a href="/" class="back-link">Volver al inicio</a>
+    </div>
+</body>
+</html>

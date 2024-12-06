@@ -1,12 +1,30 @@
-<h1>Subir Meme</h1>
-<form method="post" enctype="multipart/form-data">
-    <label>Descripción:</label><br>
-    <input type="text" name="description"><br>
-    <label>Alias de usuario:</label><br>
-    <input type="text" name="user_alias"><br>
-    <label>Etiquetas personalizadas (separadas por comas):</label><br>
-    <input type="text" name="tags"><br>
-    <label>Imagen:</label><br>
-    <input type="file" name="image"><br>
-    <button type="submit">Subir</button>
-</form>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Meme</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Subir Meme</h1>
+        <form method="post" enctype="multipart/form-data" class="upload-form">
+            <label for="description">Descripción:</label><br>
+            <input type="text" id="description" name="description" class="input-field"><br>
+
+            <label for="user_alias">Alias de usuario:</label><br>
+            <input type="text" id="user_alias" name="user_alias" class="input-field"><br>
+
+            <label for="tags">Etiquetas personalizadas (separadas por comas):</label><br>
+            <input type="text" id="tags" name="tags" class="input-field"><br>
+
+            <label for="image">Imagen:</label><br>
+            <input type="file" id="image" name="image" class="input-field"><br>
+
+            <button type="submit" class="submit-button">Subir</button>
+        </form>
+        <a href="/" class="back-link">Volver al inicio</a>
+    </div>
+</body>
+</html>

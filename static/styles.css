@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    color: #555;
+    margin-top: 30px;
+}
+
+.meme-image img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.tags-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tag-item {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 5px 0;
+    background: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+}
+
+.confidence {
+    font-size: 0.9em;
+    color: #777;
+}
+
+.search-form, .upload-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+}
+
+.search-button, .submit-button {
+    padding: 10px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button:hover, .submit-button:hover {
+    background: #0056b3;
+}
+
+.nav-link, .back-link {
+    display: inline-block;
+    margin: 10px 5px;
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.nav-link:hover, .back-link:hover {
+    text-decoration: underline;
+}

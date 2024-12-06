@@ -1,9 +1,25 @@
-<h1>Meme Detalle</h1>
-<p><strong>Descripción:</strong> {{ meme[0] }}</p>
-<img src="https://{{ AWS_S3_BUCKET }}.s3.{{ AWS_REGION }}.amazonaws.com/{{ meme[1] }}" alt="Meme Image">
-<h2>Tags</h2>
-<ul>
-    {% for tag in tags %}
-    <li>{{ tag[0] }} (Confidence: {{ tag[1] }}%)</li>
-    {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Meme</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Meme Detalle</h1>
+        <p><strong>Descripción:</strong> {{ meme[0] }}</p>
+        <div class="meme-image">
+            <img src="https://{{ AWS_S3_BUCKET }}.s3.{{ AWS_REGION }}.amazonaws.com/{{ meme[1] }}" alt="Meme Image">
+        </div>
+        <h2 class="subtitle">Etiquetas</h2>
+        <ul class="tags-list">
+            {% for tag in tags %}
+            <li class="tag-item">{{ tag[0] }} <span class="confidence">({{ tag[1] }}%)</span></li>
+            {% endfor %}
+        </ul>
+        <a href="/" class="back-link">Volver al inicio</a>
+    </div>
+</body>
+</html>

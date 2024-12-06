@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, flash
 import boto3
 import uuid
 from config import AWS_S3_BUCKET, AWS_REGION, AWS_ACCESS_KEY, AWS_SECRET_KEY, IMAGGA_API_KEY, IMAGGA_API_SECRET, IMAGGA_ENDPOINT
@@ -64,10 +64,6 @@ def upload():
                     result = response_data.get("result", {})
                     tags = result.get("tags", [])
 
-                    # Depuración para asegurar que los datos están presentes
-                    print("Resultado:", result)
-                    print("Etiquetas:", tags)
-
                     # Si hay etiquetas, las insertamos en la base de datos
                     if tags:
                         for tag in tags:
@@ -83,7 +79,6 @@ def upload():
                                 """,
                                 (tag_id, image_id, tag_name, confidence)
                             )
-
                     else:
                         print("No se encontraron etiquetas en la respuesta.")
                 except ValueError as e:
@@ -121,7 +116,8 @@ def search():
         results = execute_query(query, (f"%{keyword}%", f"%{keyword}%"), fetch=True)
 
         return render_template("search.html", results=results)
-
+    
+    flash("No se a encontrado ningun registro por favor intentelo nuevamente.", "error")
     return render_template("search.html", results=[])
 
 # Página de detalles del meme
