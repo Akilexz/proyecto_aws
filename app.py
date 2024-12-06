@@ -133,4 +133,4 @@ def meme_details(meme_id):
         AWS_REGION=app.config["AWS_REGION"])
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
