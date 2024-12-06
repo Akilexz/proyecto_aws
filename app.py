@@ -132,5 +132,5 @@ def meme_details(meme_id):
     return render_template("details.html", meme=meme, tags=tags, AWS_S3_BUCKET=app.config["AWS_S3_BUCKET"],
         AWS_REGION=app.config["AWS_REGION"])
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
