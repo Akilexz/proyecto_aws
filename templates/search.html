@@ -9,25 +9,12 @@
 <body>
     <div class="container">
         <h1 class="title">Buscar Meme</h1>
-
-        <!-- Mostrar mensajes flash -->
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-        <div class="flash-messages">
-            {% for category, message in messages %}
-            <p class="flash-message {{ category }}">{{ message }}</p>
-            {% endfor %}
-        </div>
-        {% endif %}
-        {% endwith %}
-
         <form method="post" class="search-form">
             <input type="text" name="keyword" placeholder="Buscar por descripción o etiquetas" class="search-input">
             <button type="submit" class="search-button">Buscar</button>
         </form>
 
         <div class="search-results">
-            {% if results %}
                 <ul>
                     {% for result in results %}
                     <li class="search-item">
@@ -35,9 +22,6 @@
                     </li>
                     {% endfor %}
                 </ul>
-            {% else %}
-                <p class="no-results-message">No se encontraron coincidencias.</p>
-            {% endif %}
         </div>
 
         <a href="/" class="back-link">Volver al inicio</a>

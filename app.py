@@ -116,8 +116,6 @@ def search():
         results = execute_query(query, (f"%{keyword}%", f"%{keyword}%"), fetch=True)
 
         return render_template("search.html", results=results)
-    
-    flash("No se a encontrado ningun registro por favor intentelo nuevamente.", "error")
     return render_template("search.html", results=[])
 
 # Página de detalles del meme
