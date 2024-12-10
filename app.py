@@ -47,6 +47,21 @@ def upload():
         """
         execute_query(query, (image_id, description, image_path, user_alias))
 
+        # Manejar etiquetas personalizadas
+        if custom_tags:
+            # Separar las etiquetas personalizadas por coma y limpiar espacios
+            custom_tags_list = [tag.strip() for tag in custom_tags.split(",")]
+            for custom_tag in custom_tags_list:
+                if custom_tag:  # Evitar valores vacíos
+                    tag_id = str(uuid.uuid4())  # Generar un ID único para la etiqueta
+                    execute_query(
+                        """
+                        INSERT INTO tags (id, meme_id, tag, confidence)
+                        VALUES (%s, %s, %s, NULL)
+                        """,
+                        (tag_id, image_id, custom_tag)
+                    )
+                    
         # Obtener etiquetas automáticas de Imagga
         try:
             response = requests.get(
