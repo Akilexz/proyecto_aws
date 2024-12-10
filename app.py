@@ -57,11 +57,11 @@ def upload():
                     execute_query(
                         """
                         INSERT INTO tags (id, meme_id, tag, confidence)
-                        VALUES (%s, %s, %s, NULL)
+                        VALUES (%s, %s, %s, 0)
                         """,
                         (tag_id, image_id, custom_tag)
                     )
-                    
+
         # Obtener etiquetas automáticas de Imagga
         try:
             response = requests.get(
