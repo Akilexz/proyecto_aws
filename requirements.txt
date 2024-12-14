@@ -14,4 +14,3 @@ urllib3
 Werkzeug
 psycopg2-binary
 python-dotenv
-gunicorn
